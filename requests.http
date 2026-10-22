@@ -1,0 +1,35 @@
+POST http://localhost:8080/api/addressbooks
+Content-Type: application/json
+
+{}
+
+### 2. Create buddies
+POST http://localhost:8080/api/buddies
+Content-Type: application/json
+
+{"name": "Max", "address": "23 Bank Street", "phoneNumber": "613-501-4444"}
+
+###
+POST http://localhost:8080/api/buddies
+Content-Type: application/json
+
+{"name": "Aidan", "address": "24 Bank Street", "phoneNumber": "343-444-5555"}
+
+### Add buddy 1 to address book 1
+POST http://localhost:8080/api/addressbooks/1/buddies
+Content-Type: text/uri-list
+
+http://localhost:8080/api/buddies/1
+
+### Add buddy 2 to address book 1
+POST http://localhost:8080/api/addressbooks/1/buddies
+Content-Type: text/uri-list
+
+http://localhost:8080/api/buddies/2
+
+### 4. Check the JSON
+GET http://localhost:8080/api/addressbooks/1/buddies
+Accept: application/json
+
+### 5. Thymeleaf view (also open in a browser)
+GET http://localhost:8080/addressbooks/1
